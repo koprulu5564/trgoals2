@@ -124,8 +124,8 @@ def generate_m3u() -> str:
     # Kanal ekleme
     for channel_id, channel_name in channels.items():
         if channel_id in stream_paths:
-            # Sadece extclopt parametresi eklenecek, |referer= kaldırıldı
-            stream_url = f"{urls['base_url']}{stream_paths[channel_id]}?extclopt={urls['dynamic_domain']}"
+            # İÇERİK BAĞLANTILARININ SONUNA HİÇBİR ŞEY EKLENMEYECEK
+            stream_url = f"{urls['base_url']}{stream_paths[channel_id]}"
             m3u_content.extend([
                 f'#EXTINF:-1 tvg-id="{channel_id}" tvg-name="{channel_name}" group-title="TRGOALS",{channel_name}',
                 '#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5)',
